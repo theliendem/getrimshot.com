@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Icon[]
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code: personal settings (launch.json for the preview server is shared)
+.claude/settings.local.json
+
+# Local env and secrets, if any are ever added
+.env
+.env.*
+
+# Deploy tool state
+.vercel/
+.netlify/
+.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies, if a build step is ever added
+node_modules/
