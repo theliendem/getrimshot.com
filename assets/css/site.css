@@ -162,6 +162,8 @@ h1, h2, h3, p { margin: 0; }
 }
 .brand:hover { text-decoration: none; }
 .brand img { width: 30px; height: 30px; border-radius: 7px; }
+/* The icon's black tile would vanish into the dark page; a hairline keeps its shape. */
+:root[data-theme="dark"] .brand img { box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); }
 
 .nav-links {
   display: flex;
