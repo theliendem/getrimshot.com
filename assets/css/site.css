@@ -742,6 +742,15 @@ h1, h2, h3, p { margin: 0; }
 .footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
 .footer nav a { color: var(--text-2); }
 .footer nav a:hover { color: var(--text); }
+.footer .credit {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--text-3);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color .15s, text-decoration-color .15s;
+}
+.footer .credit:hover { color: var(--text); text-decoration-color: currentColor; }
 
 /* ---------- Document pages (privacy, support) ---------- */
 
