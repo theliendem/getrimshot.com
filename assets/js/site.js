@@ -57,6 +57,13 @@
 
   applyTheme(root.dataset.theme === "light" ? "light" : "dark");
 
+  // ---------- Platform ----------
+  // On Android, "Get the app" leads to the beta steps instead of the App Store.
+
+  if (root.dataset.platform === "android") {
+    document.querySelectorAll("[data-get-app]").forEach((a) => (a.href = "/android/"));
+  }
+
   // ---------- Nav hairline on scroll ----------
 
   const nav = document.querySelector(".nav");

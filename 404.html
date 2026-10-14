@@ -9,7 +9,7 @@
   <link rel="icon" href="/assets/icon/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
   <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
@@ -36,7 +36,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 14.6A8.5 8.5 0 0 1 9.4 3.7a.6.6 0 0 0-.8-.7 9.5 9.5 0 1 0 12.4 12.4.6.6 0 0 0-.7-.8Z"/></svg>
           </button>
         </div>
-        <a class="btn btn-primary btn-small" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">Get the app</a>
+        <a class="btn btn-primary btn-small" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060" data-get-app>Get the app</a>
       </div>
     </div>
   </header>
@@ -60,6 +60,7 @@
         <a href="/support/">Support</a>
         <a href="/privacy/">Privacy</a>
         <a href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">App Store</a>
+        <a href="/android/">Android beta</a>
       </nav>
     </div>
   </footer>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Rimshot · Metronome &amp; Tuner for iPhone</title>
-  <meta name="description" content="Rimshot is a free metronome and tuner for iPhone. Keep steady time, build shows with changing tempos and time signatures, and tune up in seconds.">
+  <title>Rimshot · Metronome &amp; Tuner for iPhone and Android</title>
+  <meta name="description" content="Rimshot is a free metronome and tuner for iPhone and Android. Keep steady time, build shows with changing tempos and time signatures, and tune up in seconds.">
   <link rel="canonical" href="https://getrimshot.com/">
   <meta name="theme-color" content="#000000">
   <!-- Smart App Banner: uncomment and add the real App Store ID. -->
@@ -12,7 +12,7 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://getrimshot.com/">
-  <meta property="og:title" content="Rimshot · Metronome & Tuner for iPhone">
+  <meta property="og:title" content="Rimshot · Metronome & Tuner for iPhone and Android">
   <meta property="og:description" content="Keep steady time, practice whole shows with changing tempos and time signatures, and tune up in seconds.">
   <meta property="og:site_name" content="Rimshot">
   <meta property="og:image" content="https://getrimshot.com/assets/icon/Rimshot_512.jpg">
@@ -24,7 +24,7 @@
   <link rel="icon" href="/assets/icon/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
   <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
@@ -51,7 +51,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 14.6A8.5 8.5 0 0 1 9.4 3.7a.6.6 0 0 0-.8-.7 9.5 9.5 0 1 0 12.4 12.4.6.6 0 0 0-.7-.8Z"/></svg>
           </button>
         </div>
-        <a class="btn btn-primary btn-small" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">Get the app</a>
+        <a class="btn btn-primary btn-small" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060" data-get-app>Get the app</a>
       </div>
     </div>
   </header>
@@ -64,11 +64,12 @@
         <div class="hero-copy">
           <div class="pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><span>120 BPM</span></div>
           <h1>In time<span class="dot">.</span><br>In tune<span class="dot">.</span></h1>
-          <p class="lede">Rimshot is a metronome and tuner for iPhone. Build a show and rehearse the whole piece, with every tempo and time signature change landing right on the downbeat.</p>
+          <p class="lede">Rimshot is a metronome and tuner for iPhone and Android. Build a show and rehearse the whole piece, with every tempo and time signature change landing right on the downbeat.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">Download on the App Store</a>
-            <span class="cta-meta">Free for iPhone</span>
+            <a class="btn btn-primary" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060" data-store="ios">Download on the App Store</a>
+            <a class="btn btn-secondary" href="/android/" data-store="android">Join the Android beta</a>
           </div>
+          <p class="cta-meta">Free for iPhone and Android</p>
         </div>
         <figure class="hero-phone">
           <div class="phone">
@@ -223,20 +224,24 @@
             <p>Yes. Rimshot is free to download and has no in-app purchases or subscriptions.</p>
           </details>
           <details>
+            <summary>Is Rimshot on Android?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
+            <p>Yes, as a closed beta on Google Play. It takes three quick steps to join. <a href="/android/">See how to get it</a>.</p>
+          </details>
+          <details>
             <summary>What's a show?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
             <p>A show is a sequence of measure groups. Each group sets how many measures to play, the tempo and the time signature. Press play and Rimshot runs the whole thing in order, so you can rehearse a piece from start to finish without touching your phone.</p>
           </details>
           <details>
             <summary>Can I share a show with my band?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
-            <p>Yes. Share a show and everyone can practice the same arrangement at the same tempos.</p>
+            <p>Of course. Share a show and everyone can practice the same arrangement at the same tempos.</p>
           </details>
           <details>
             <summary>Will it keep playing when my screen is locked?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
-            <p>Yes. Turn on Background Playback in Settings and Rimshot keeps time while you switch apps or lock your iPhone.</p>
+            <p>Yes. Turn on Background Playback in Settings and Rimshot keeps time while you switch apps or lock your phone.</p>
           </details>
           <details>
             <summary>Does the tuner record me?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
-            <p>No. The tuner listens through the microphone and works out the pitch in real time, on your iPhone. Audio is never recorded, saved or sent anywhere.</p>
+            <p>Never. The tuner listens through the microphone and works out the pitch in real time, on your phone. Audio is never recorded, saved or sent anywhere.</p>
           </details>
           <details>
             <summary>Can I tune to something other than A = 440?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
@@ -244,7 +249,7 @@
           </details>
           <details>
             <summary>Does Rimshot need an internet connection?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
-            <p>No. The metronome, shows and tuner all run on your device.</p>
+            <p>Nope! The metronome, shows and tuner all run on your device.</p>
           </details>
         </div>
       </div>
@@ -256,9 +261,10 @@
         <div class="pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
         <h2>Count yourself in<span class="dot">.</span></h2>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">Download on the App Store</a>
+          <a class="btn btn-primary" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060" data-store="ios">Download on the App Store</a>
+          <a class="btn btn-secondary" href="/android/" data-store="android">Join the Android beta</a>
         </div>
-        <p class="cta-meta">Free for iPhone</p>
+        <p class="cta-meta">Free for iPhone and Android</p>
       </div>
     </section>
 
@@ -274,6 +280,7 @@
         <a href="/support/">Support</a>
         <a href="/privacy/">Privacy</a>
         <a href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">App Store</a>
+        <a href="/android/">Android beta</a>
       </nav>
     </div>
   </footer>

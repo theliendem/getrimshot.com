@@ -255,6 +255,7 @@ h1, h2, h3, p { margin: 0; }
 .btn svg { width: 20px; height: 20px; flex: none; }
 
 .btn-primary { background: var(--accent); color: #fff; }
+.btn-secondary { background: var(--fill); color: var(--text); }
 .btn-small { height: 36px; padding: 0 16px; font-size: 15px; font-weight: 600; white-space: nowrap; }
 
 /* ---------- Pulse (beat indicator) ---------- */
@@ -403,6 +404,11 @@ h1, h2, h3, p { margin: 0; }
   font-size: 15px;
   font-weight: 500;
 }
+.cta-row + .cta-meta { margin-top: 16px; }
+
+/* Android visitors see the Android beta first. data-platform is set in each page's <head>. */
+:root[data-platform="android"] .cta-row [data-store="android"] { order: -1; background: var(--accent); color: #fff; }
+:root[data-platform="android"] .cta-row [data-store="ios"] { background: var(--fill); color: var(--text); }
 
 .hero-phone {
   display: flex;
@@ -804,6 +810,65 @@ h1, h2, h3, p { margin: 0; }
 }
 .contact-card span { display: block; color: var(--text-2); font-size: 15px; font-weight: 500; }
 .contact-card strong { font-size: clamp(19px, 3vw, 24px); letter-spacing: -.025em; }
+
+/* ---------- Android beta steps ---------- */
+
+.steps {
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.doc .steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 20px;
+  margin: 0;
+  padding: 22px 26px;
+  border-radius: var(--r-card);
+  background: var(--surface);
+  transition: background-color .3s var(--ease);
+}
+.doc .steps li + li { margin-top: 12px; }
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.doc .steps h2 {
+  margin: 0;
+  font-size: 19px;
+  letter-spacing: -.02em;
+}
+.doc .steps p {
+  margin-top: 4px;
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.doc .steps p strong { color: var(--text); font-weight: 600; }
+.doc .steps-note {
+  margin-top: 16px;
+  padding: 0 26px;
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+  .doc .steps li { grid-template-columns: auto minmax(0, 1fr); align-items: start; }
+  .steps li::before { margin-top: -4px; }
+  .steps .btn { grid-column: 1 / -1; height: 44px; }
+}
 
 /* ---------- 404 ---------- */
 

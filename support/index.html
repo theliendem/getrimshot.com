@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Support · Rimshot</title>
-  <meta name="description" content="Get help with Rimshot, the metronome and tuner for iPhone.">
+  <meta name="description" content="Get help with Rimshot, the metronome and tuner for iPhone and Android.">
   <link rel="canonical" href="https://getrimshot.com/support/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://getrimshot.com/support/">
   <meta property="og:title" content="Support · Rimshot">
-  <meta property="og:description" content="Get help with Rimshot, the metronome and tuner for iPhone.">
+  <meta property="og:description" content="Get help with Rimshot, the metronome and tuner for iPhone and Android.">
   <meta property="og:site_name" content="Rimshot">
   <meta property="og:image" content="https://getrimshot.com/assets/icon/Rimshot_512.jpg">
   <meta property="og:image:width" content="512">
@@ -20,7 +20,7 @@
   <link rel="icon" href="/assets/icon/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
   <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
@@ -47,14 +47,14 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 14.6A8.5 8.5 0 0 1 9.4 3.7a.6.6 0 0 0-.8-.7 9.5 9.5 0 1 0 12.4 12.4.6.6 0 0 0-.7-.8Z"/></svg>
           </button>
         </div>
-        <a class="btn btn-primary btn-small" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">Get the app</a>
+        <a class="btn btn-primary btn-small" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060" data-get-app>Get the app</a>
       </div>
     </div>
   </header>
 
   <main id="main" class="wrap doc">
     <h1>Support<span class="dot">.</span></h1>
-    <p class="lede">Found a bug, have a question or want to suggest a feature? Send an email. If something isn't working, include your iPhone model and iOS version.</p>
+    <p class="lede">Found a bug, have a question or want to suggest a feature? Send an email. If something isn't working, include your phone model and its iOS or Android version.</p>
 
     <div class="contact-card">
       <div>
@@ -98,6 +98,7 @@
         <a href="/support/" aria-current="page">Support</a>
         <a href="/privacy/">Privacy</a>
         <a href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060">App Store</a>
+        <a href="/android/">Android beta</a>
       </nav>
     </div>
   </footer>
