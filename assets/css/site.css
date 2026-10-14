@@ -863,6 +863,7 @@ h1, h2, h3, p { margin: 0; }
   font-size: 15px;
   line-height: 1.4;
 }
+.doc .steps-note strong { color: var(--text); font-weight: 600; }
 
 @media (max-width: 560px) {
   .doc .steps li { grid-template-columns: auto minmax(0, 1fr); align-items: start; }
