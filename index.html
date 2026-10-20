@@ -25,6 +25,149 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
   <script src="/assets/js/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://getrimshot.com/#organization",
+        "name": "Rimshot",
+        "url": "https://getrimshot.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://getrimshot.com/assets/icon/Rimshot_512.jpg",
+          "width": 512,
+          "height": 512
+        },
+        "email": "support@getrimshot.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Neil Dembla",
+          "url": "https://neildembla.com/"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://getrimshot.com/#website",
+        "name": "Rimshot",
+        "url": "https://getrimshot.com/",
+        "publisher": {
+          "@id": "https://getrimshot.com/#organization"
+        }
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://getrimshot.com/#app",
+        "name": "Rimshot",
+        "description": "Rimshot is a free metronome and tuner for iPhone and Android. Keep steady time, build shows with changing tempos and time signatures, and tune up in seconds.",
+        "url": "https://getrimshot.com/",
+        "installUrl": "https://apps.apple.com/us/app/rimshot-metronome/id6816163060",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "MultimediaApplication",
+        "image": "https://getrimshot.com/assets/icon/Rimshot_512.jpg",
+        "screenshot": [
+          "https://getrimshot.com/assets/screens/dark/met.webp",
+          "https://getrimshot.com/assets/screens/dark/show.webp",
+          "https://getrimshot.com/assets/screens/dark/tuner.webp",
+          "https://getrimshot.com/assets/screens/dark/settings.webp"
+        ],
+        "featureList": [
+          "Metronome from 40 to 300 BPM",
+          "Tap tempo",
+          "1 to 6 subdivisions per beat",
+          "Background playback when your phone is locked",
+          "Shows built from measure groups, each with its own count, tempo and time signature",
+          "Tuner with note name and cents readout",
+          "Adjustable reference pitch, A4 = 440 Hz by default"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Neil Dembla",
+          "url": "https://neildembla.com/"
+        },
+        "publisher": {
+          "@id": "https://getrimshot.com/#organization"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://getrimshot.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Rimshot free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Rimshot is free to download and has no in-app purchases or subscriptions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Rimshot on Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, as a closed beta on Google Play. It takes three quick steps to join. <a href=\"https://getrimshot.com/android/\">See how to get it</a>."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's a show?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A show is a sequence of measure groups. Each group sets how many measures to play, the tempo and the time signature. Press play and Rimshot runs the whole thing in order, so you can rehearse a piece from start to finish without touching your phone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I share a show with my band?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Of course. Share a show and everyone can practice the same arrangement at the same tempos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will it keep playing when my screen is locked?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Turn on Background Playback in Settings and Rimshot keeps time while you switch apps or lock your phone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the tuner record me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. The tuner listens through the microphone and works out the pitch in real time, on your phone. Audio is never recorded, saved or sent anywhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I tune to something other than A = 440?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Change the reference pitch in Settings, and note names and cents follow it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Rimshot need an internet connection?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nope! The metronome, shows and tuner all run on your device."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
