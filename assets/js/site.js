@@ -18,8 +18,10 @@
   }
 
   // ---------- Screenshots ----------
-  // Each .screen has data-shot="/path/{theme}/name.jpg". Only the current
-  // theme's file is requested; if it's missing, fall back to the other
+  // Each .screen has data-shot="/path/{theme}/name", with name.webp (828px)
+  // and name-640.webp beside it. The markup points at the dark set, so
+  // crawlers and the preload scanner find it; light-theme visitors get the
+  // light set swapped in. If a file is missing, fall back to the other
   // theme, then to the labeled placeholder.
 
   function showScreenshots(theme) {
@@ -27,9 +29,11 @@
     document.querySelectorAll(".screen[data-shot]").forEach((screen) => {
       const img = screen.querySelector("img.shot");
       if (!img) return;
-      const url = (t) => screen.dataset.shot.replace("{theme}", t);
+      const base = (t) => screen.dataset.shot.replace("{theme}", t);
+      const url = (t) => `${base(t)}.webp`;
       const use = (t) => {
         img.dataset.variant = t;
+        img.srcset = `${base(t)}-640.webp 640w, ${url(t)} 828w`;
         img.src = url(t);
       };
       img.onerror = () => {

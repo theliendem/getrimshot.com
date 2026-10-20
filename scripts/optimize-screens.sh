@@ -1,27 +1,31 @@
 #!/bin/sh
-# Makes web copies of the app screenshots: a 828px-wide JPEG next to each
-# original PNG. The originals are never modified. Re-run after replacing any
-# screenshot. Needs macOS (sips).
+# Makes web copies of the app screenshots: WebP at 828px wide (for 3x phones)
+# and 640px wide (for 2x screens). The full-size PNGs aren't kept in the repo,
+# so pass the folder that holds them, with light/ and dark/ subfolders. Re-run
+# after replacing any screenshot. Needs cwebp (brew install webp).
 #
-#   sh scripts/optimize-screens.sh
+#   sh scripts/optimize-screens.sh ~/Desktop/rimshot-screens
 #
-# Why JPEG and not AVIF: sips writes AVIF as a tiled grid that Chromium
+# Why WebP and not AVIF: sips writes AVIF as a tiled grid that Chromium
 # decodes to blank pixels, so those files would break in Chrome and Edge.
 
 set -eu
+SRC=$(cd "${1:?usage: optimize-screens.sh <folder with light/ and dark/ PNGs>}" && pwd)
 cd "$(dirname "$0")/../assets/screens"
 
-WIDTH=828      # largest phone frame is ~276 CSS px, shown at 3x on iPhone
-QUALITY=75
+QUALITY=78
 
-for png in light/*.PNG light/*.png dark/*.PNG dark/*.png; do
+for png in "$SRC"/light/*.PNG "$SRC"/light/*.png "$SRC"/dark/*.PNG "$SRC"/dark/*.png; do
   [ -e "$png" ] || continue
-  base="${png%.*}"
-  w=$(sips -g pixelWidth "$png" | awk '/pixelWidth/ { print $2 }')
-  h=$(sips -g pixelHeight "$png" | awk '/pixelHeight/ { print $2 }')
-  height=$(( h * WIDTH / w ))
+  theme=$(basename "$(dirname "$png")")
+  name=$(basename "$png" | sed 's/\.[^.]*$//' | tr '[:upper:]' '[:lower:]')
 
-  sips --resampleHeightWidth "$height" "$WIDTH" -s format jpeg -s formatOptions "$QUALITY" "$png" --out "$base.jpg" >/dev/null
+  for width in 828 640; do
+    out="$theme/$name.webp"
+    [ "$width" = 828 ] || out="$theme/$name-$width.webp"
+    cwebp -quiet -q "$QUALITY" -m 6 -sharp_yuv -resize "$width" 0 "$png" -o "$out"
+  done
 
-  printf '%-18s %5s KB  ->  %4s KB\n' "$png" "$(du -k "$png" | cut -f1)" "$(du -k "$base.jpg" | cut -f1)"
+  printf '%-24s %5s KB  ->  %4s KB, %4s KB\n' "$theme/$name" "$(du -k "$png" | cut -f1)" \
+    "$(du -k "$theme/$name.webp" | cut -f1)" "$(du -k "$theme/$name-640.webp" | cut -f1)"
 done
