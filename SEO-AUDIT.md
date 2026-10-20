@@ -61,3 +61,40 @@ Audited 2026-10-20 on branch `seo-optimization`.
 - Rendering: all text content is in the static HTML. Only the screenshots (H2) and the demo timeline need JS.
 - Accessibility: skip link, `<main>`, `<footer>`, footer `<nav aria-label>`, `aria-current` on footer links, `aria-hidden` on decorative SVGs and pulse animations, and `aria-pressed` on toggles.
 - Descriptive link text, apart from "See how to get it" (`index.html:228`), which is fine in context.
+
+## Done
+
+Phase 2 changes, each in its own commit on `seo-optimization`, and re-checked in Phase 3.
+
+| Finding | What changed | Commit |
+|---------|--------------|--------|
+| H1, L1, L2 | JSON-LD. Home has `Organization`, `WebSite`, `MobileApplication` (free, iOS + Android, App Store install link, screenshots, feature list, no rating) and a `FAQPage` copied from the visible FAQ. Android, Support and Privacy each have a `BreadcrumbList`. | `64a6e25` |
+| H2, M7, L8 | Screenshots have a real `src` (dark set) plus `srcset` at 640/828 px. `site.js` swaps in the light set when needed. They're now WebP at ~20–45 KB, down from 100–150 KB JPEGs. The `<noscript>` copies, JPEGs and PNG originals are removed (the PNGs are still in git history). `scripts/optimize-screens.sh` now outputs WebP and takes the PNG folder as an argument. | `f180312` |
+| M1–M3 | Titles are now 53–55 chars and descriptions 145–157 chars, mirrored in OG tags. The home title adds "App". | `3cfa18c` |
+| M3 (body) | The privacy policy covers iPhone and Android: permission paths, the Android notification permission, Google backups and Google Play diagnostics. Effective date is now October 20, 2026. The support microphone fix covers both platforms. The Android claims were checked against the Android app's manifest and dependencies: no INTERNET permission and no analytics libraries. | `c850285` |
+| M6 | The H1 is now "Rimshot.", and "In time. In tune." is a smaller tagline beneath it. | `5c191fb` |
+| M8 | Header links are wrapped in `<nav aria-label="Primary">`. The layout is unchanged. | `3e2df36` |
+| L3 | The sitemap has `<lastmod>`. | `d118878` |
+| L5 | There's a 1200×630 social card (`assets/social/rimshot-card.jpg`, source `scripts/social-card.html`), and pages use `summary_large_image`. | `3cfa18c` |
+| L7 | The Smart App Banner is on for Home, Android, Support and Privacy. | `056b2b8` |
+
+**Phase 3 checks** (there's no build, test or lint setup, so these were run by hand against `python3 -m http.server`):
+- All 22 internal URLs referenced by the pages return 200 (pages, assets, OG image, screenshots, sitemap, robots), and every `/#anchor` target exists.
+- Each page has one H1. Titles are 53–55 chars and descriptions 145–157 chars on every indexable page. Every `<img>` has `alt`, `width` and `height`.
+- All JSON-LD blocks parse as valid JSON.
+- `html-validate` reports only issues that were already there before this branch (lowercase `<!doctype>` and `role="radio"` on the swatch buttons). Nothing new.
+- In headless Chrome, both the dark and light themes load the right WebP from `srcset`, with no fallback to the placeholder.
+- Hero screenshots at 1440 px and 390 px look right. The social card renders at exactly 1200×630.
+
+**Known trade-off:** a returning visitor who chose the light theme now downloads the dark hero screenshot (~20 KB) before `site.js` swaps it. That's the cost of making the image discoverable early, which matters more for LCP and crawlers.
+
+## Needs my decision
+
+1. **Show sharing on Android.** The homepage says "Sharing: Send shows to your band" and the FAQ answers "Can I share a show with my band? Of course." The Android app has no show sharing. That copy, and the FAQ JSON-LD that mirrors it, should say iPhone only, or wait until Android has sharing.
+2. **HTTP → HTTPS (M4).** Turn on Cloudflare **Always Use HTTPS**. `http://getrimshot.com/` currently returns 200.
+3. **www (M5).** Add a Cloudflare redirect rule from `www.getrimshot.com/*` to `https://getrimshot.com/$1` (301). The www address currently returns 404.
+4. **Organization vs Person.** The JSON-LD presents Rimshot as an Organization founded by Neil Dembla. If Rimshot isn't a business, I can switch the publisher to a Person.
+5. **Ratings.** Google shows star ratings in search only when an app's structured data includes reviews or ratings, and the rating has to be visible on the page. Showing App Store ratings on the site would enable that. It's not done, because the site has no ratings to cite.
+6. **Asset caching (L9).** Optionally add a Cloudflare cache rule with a long TTL for `/assets/*`. Filenames aren't versioned, so a changed asset would take that long to update everywhere.
+7. **Deployed tooling.** `scripts/` (the optimize script and the social card template) is publicly served. The card page has `noindex`. Excluding `scripts/` from the deploy would need a `_config.yml` `exclude:` entry.
+8. **H1 keywords.** "Rimshot." contains no "metronome" or "tuner". The tagline and lede right below it do. That's fine, but a heading like "Rimshot. The metronome & tuner." would be a stronger signal if you ever want it.
