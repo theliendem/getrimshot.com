@@ -165,10 +165,11 @@ h1, h2, h3, p { margin: 0; }
 /* The icon's black tile would vanish into the dark page; a hairline keeps its shape. */
 :root[data-theme="dark"] .brand img { box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); }
 
+.nav-primary { margin-left: auto; }
 .nav-links {
   display: flex;
   gap: 26px;
-  margin: 0 0 0 auto;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -187,7 +188,7 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (max-width: 760px) {
-  .nav-links { display: none; }
+  .nav-primary { display: none; }
   .nav-actions { margin-left: auto; }
 }
 
