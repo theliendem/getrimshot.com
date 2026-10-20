@@ -1,0 +1,49 @@
+<!doctype html>
+<!--
+  Source for the link preview image, assets/social/rimshot-card.jpg (1200×630).
+  Serve the site locally, render this page at 1200×630, then save it as JPEG:
+
+    python3 -m http.server 4173
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+      --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 \
+      --screenshot=card.png http://localhost:4173/scripts/social-card.html
+    sips -s format jpeg -s formatOptions 90 card.png --out assets/social/rimshot-card.jpg
+-->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Rimshot social card</title>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body { position: relative; }
+
+    .card-copy { position: absolute; left: 80px; top: 112px; width: 600px; }
+    .card-brand { display: flex; align-items: center; gap: 14px; color: var(--text-2); font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
+    .card-brand img { width: 52px; height: 52px; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); }
+    .card-copy h1 { margin-top: 30px; font-size: 128px; line-height: .92; font-weight: 800; letter-spacing: -.055em; }
+    .card-copy .tagline { margin-top: 14px; font-size: 54px; }
+    .card-copy .lede { margin-top: 34px; max-width: none; font-size: 27px; }
+
+    .card-phone { position: absolute; top: 64px; }
+    .card-phone.back { left: 812px; top: 112px; --pw: 290px; opacity: .55; }
+    .card-phone.front { left: 700px; --pw: 300px; box-shadow: -30px 0 60px rgba(0, 0, 0, .7); }
+  </style>
+</head>
+<body>
+  <div class="card-copy">
+    <div class="card-brand"><img src="/assets/icon/Rimshot_256.jpg" alt="">getrimshot.com</div>
+    <h1>Rimshot<span class="dot">.</span></h1>
+    <p class="tagline">In time<span class="dot">.</span> In tune<span class="dot">.</span></p>
+    <p class="lede">Metronome &amp; tuner for iPhone and Android</p>
+  </div>
+
+  <div class="phone card-phone back">
+    <div class="screen"><img src="/assets/screens/dark/show.webp" alt=""></div>
+  </div>
+  <div class="phone card-phone front">
+    <div class="screen"><img src="/assets/screens/dark/met.webp" alt=""><span class="island"></span></div>
+  </div>
+</body>
+</html>
