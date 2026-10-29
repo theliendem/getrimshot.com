@@ -5,7 +5,7 @@
 
   // ---------- Theme ----------
 
-  const THEME_COLORS = { dark: "#000000", light: "#f2f2f7" };
+  const THEME_COLORS = { dark: "#000000", light: "#efe9dc" };
 
   function applyTheme(theme) {
     root.dataset.theme = theme;
