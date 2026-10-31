@@ -73,11 +73,16 @@
           "https://getrimshot.com/assets/screens/dark/settings.webp"
         ],
         "featureList": [
-          "Metronome from 40 to 300 BPM",
+          "Metronome from 10 to 400 BPM",
           "Tap tempo",
           "1 to 6 subdivisions per beat",
           "Background playback when your phone is locked",
           "Shows built from measure groups, each with its own count, tempo and time signature",
+          "Tempo ramps for accelerando and ritardando",
+          "Accent patterns: accent, play or silence each beat",
+          "Two-measure count-in",
+          "Looping from any measure or section, with a count-off between repeats",
+          "Share shows with your band",
           "Tuner with note name and cents readout",
           "Adjustable reference pitch, A4 = 440 Hz by default"
         ],
@@ -121,6 +126,22 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "A show is a sequence of measure groups. Each group sets how many measures to play, the tempo and the time signature. Press play and Rimshot runs the whole thing in order, so you can rehearse a piece from start to finish without touching your phone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can it speed up or slow down gradually?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Turn a group into a tempo ramp and Rimshot moves from one tempo to the next beat by beat, for an accelerando or a ritardando. A ramp can start from wherever the group before it left off."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I loop just one section?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Pick where to start and stop, from the beginning, any measure or any section letter, and Rimshot repeats it with a two-measure count-off between passes. You can also add a two-measure count-in before the show starts."
             }
           },
           {
@@ -237,7 +258,7 @@
           <p class="body">Set a tempo with the slider, nudge it with plus and minus, or tap it in. Split each beat into as many as six subdivisions. Nothing else on screen to get in your way.</p>
         </div>
         <ul class="list">
-          <li><span class="k">Tempo</span><span class="v">40–300 BPM</span></li>
+          <li><span class="k">Tempo</span><span class="v">10–400 BPM</span></li>
           <li><span class="k">Tap tempo</span><span class="v">Tap to set BPM</span></li>
           <li><span class="k">Subdivision</span><span class="v">1–6 per beat</span></li>
           <li><span class="k">Background playback</span><span class="v">Keeps time when locked</span></li>
@@ -259,10 +280,13 @@
           <div class="copy">
             <p class="eyebrow">Show mode</p>
             <h2>Practice the whole show<span class="dot">.</span></h2>
-            <p class="body">Build a show from groups of measures, each with its own length, tempo and time signature. Press play and Rimshot runs the arrangement from the first bar to the last, so you rehearse it exactly the way it's written.</p>
+            <p class="body">Build a show from groups of measures, each with its own length, tempo and time signature. Ramp a group faster or slower, accent or silence any beat, and loop the part that needs work. Press play and Rimshot runs the arrangement from the first bar to the last, so you rehearse it exactly the way it's written.</p>
             <ul class="list">
               <li><span class="k">Measure groups</span><span class="v">Count, tempo, meter</span></li>
-              <li><span class="k">Views</span><span class="v">Condensed or expanded</span></li>
+              <li><span class="k">Tempo ramps</span><span class="v">Accelerando or ritardando</span></li>
+              <li><span class="k">Accent patterns</span><span class="v">Accent, normal or silent</span></li>
+              <li><span class="k">Count-in</span><span class="v">Two measures to start</span></li>
+              <li><span class="k">Looping</span><span class="v">Any measure or section</span></li>
               <li><span class="k">Sharing</span><span class="v">Send shows to your band</span></li>
             </ul>
           </div>
@@ -371,6 +395,14 @@
           <details>
             <summary>What's a show?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
             <p>A show is a sequence of measure groups. Each group sets how many measures to play, the tempo and the time signature. Press play and Rimshot runs the whole thing in order, so you can rehearse a piece from start to finish without touching your phone.</p>
+          </details>
+          <details>
+            <summary>Can it speed up or slow down gradually?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
+            <p>Yes. Turn a group into a tempo ramp and Rimshot moves from one tempo to the next beat by beat, for an accelerando or a ritardando. A ramp can start from wherever the group before it left off.</p>
+          </details>
+          <details>
+            <summary>Can I loop just one section?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
+            <p>Yes. Pick where to start and stop, from the beginning, any measure or any section letter, and Rimshot repeats it with a two-measure count-off between passes. You can also add a two-measure count-in before the show starts.</p>
           </details>
           <details>
             <summary>Can I share a show with my band?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
