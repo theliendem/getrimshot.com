@@ -400,6 +400,8 @@ h1, h2, h3, p { margin: 0; }
   line-height: 1;
   font-weight: 700;
   letter-spacing: -.045em;
+  /* Two even lines on phones, not one word left dangling. */
+  text-wrap: balance;
 }
 
 .lede {
