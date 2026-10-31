@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["M322F3HX46.com.neildembla.Rimshot"],
+        "components": [
+          { "/": "/s", "comment": "A shared show" },
+          { "/": "/s/*", "comment": "A shared show" }
+        ]
+      }
+    ]
+  }
+}
