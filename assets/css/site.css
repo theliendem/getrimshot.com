@@ -643,6 +643,29 @@ h1, h2, h3, p { margin: 0; }
 }
 .tl-beat.is-done { background: var(--beat-done); }
 .tl-beat.is-now { background: var(--accent); }
+.tl-section {
+  flex: none;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+.timeline .tl-note {
+  margin: -4px 2px 10px;
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+/* Shared shows can run long, so groups stack and measures wrap instead of squeezing. */
+.timeline.is-stacked { flex-direction: column; gap: 22px; }
+.is-stacked .tl-label { flex-wrap: wrap; white-space: normal; }
+.is-stacked .tl-measures { flex-wrap: wrap; }
+.is-stacked .tl-measure { flex: 0 1 calc(var(--beats) * 19px + 7px); max-width: 100%; }
 /* A silenced beat still passes, so it lights as an outline. */
 .tl-beat.is-silent { background: none; box-shadow: inset 0 0 0 1.5px var(--beat); }
 .tl-beat.is-silent.is-done { box-shadow: inset 0 0 0 1.5px var(--beat-done); }
