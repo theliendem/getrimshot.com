@@ -122,10 +122,13 @@
     el.querySelectorAll("[data-r]").forEach((n) => (readout[n.dataset.r] = n));
 
     // Build the timeline and a flat list of beats to schedule.
+    // Like the app, BPM is a quarter-note tempo, so 7/8 at 160 plays eighths
+    // twice as fast as 7/4 at 160. A group's optional "accents" lists
+    // "accented", "normal" or "silent" per beat; without it, beat 1 is accented.
     const beats = [];
     let measureNo = 0;
     groups.forEach((g, gi) => {
-      const beatDur = 60 / g.bpm;
+      const beatDur = (60 / g.bpm) * (4 / g.unit);
       const groupEl = document.createElement("div");
       groupEl.className = "tl-group";
       groupEl.style.setProperty("--dur", (g.count * g.beats * beatDur).toFixed(3));
@@ -138,13 +141,14 @@
         const mEl = document.createElement("div");
         mEl.className = "tl-measure";
         for (let b = 0; b < g.beats; b++) {
+          const accent = (g.accents && g.accents[b]) || (b === 0 ? "accented" : "normal");
           const bEl = document.createElement("div");
-          bEl.className = "tl-beat";
+          bEl.className = accent === "silent" ? "tl-beat is-silent" : "tl-beat";
           mEl.appendChild(bEl);
           beats.push({
             el: bEl,
             measureEl: mEl,
-            downbeat: b === 0,
+            accent,
             dur: beatDur,
             measure: measureNo,
             group: gi,
@@ -216,7 +220,7 @@
     function schedule() {
       while (nextIndex < beats.length && nextTime < ctx.currentTime + 0.12) {
         const beat = beats[nextIndex];
-        click(nextTime, beat.downbeat);
+        if (beat.accent !== "silent") click(nextTime, beat.accent === "accented");
         queue.push({ time: nextTime, index: nextIndex });
         nextTime += beat.dur;
         nextIndex++;
