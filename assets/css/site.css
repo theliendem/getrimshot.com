@@ -799,6 +799,13 @@ h1, h2, h3, p { margin: 0; }
 .doc ul { padding-left: 1.2em; }
 .doc li + li { margin-top: 6px; }
 .doc .list, .doc .faq { margin-top: 20px; }
+.doc ul.list { padding-left: 0; }
+.doc .list > li + li { margin-top: 0; }
+.doc .demo { margin-top: 40px; }
+.doc .demo-title { margin-top: 0; }
+.doc .demo-sub { margin-top: 4px; }
+.doc .get-card { margin-top: 56px; }
+.get-card .cta-row { margin-top: 0; gap: 10px; }
 
 .callout {
   margin-top: 36px;
