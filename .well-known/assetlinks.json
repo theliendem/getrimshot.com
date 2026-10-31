@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.neildembla.rimshot",
+      "sha256_cert_fingerprints": [
+        "75:4A:27:2E:AD:F6:F5:DA:EB:2E:3D:50:2A:F3:5B:06:71:B0:7C:67:CA:79:89:71:8B:CA:E4:99:62:43:61:DB",
+        "40:CE:C5:DC:06:66:1C:8F:F8:72:46:B0:05:C6:23:2B:25:55:F8:05:4A:8A:0C:DE:89:C0:E0:6A:9A:79:82:C9"
+      ]
+    }
+  }
+]
