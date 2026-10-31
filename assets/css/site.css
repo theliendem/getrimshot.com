@@ -193,6 +193,17 @@ h1, h2, h3, p { margin: 0; }
   .nav-actions { margin-left: auto; }
 }
 
+/* The smallest phones need the room, or Get the app runs off the edge. */
+@media (max-width: 380px) {
+  :root { --gutter: 16px; }
+  .nav .wrap { gap: 10px; }
+  .nav-actions { gap: 8px; }
+  .nav .brand { gap: 8px; font-size: 17px; }
+  .nav .brand img { width: 26px; height: 26px; }
+  .nav .seg button { min-width: 30px; padding: 0 8px; }
+  .nav .btn-small { padding: 0 12px; }
+}
+
 /* ---------- Segmented control ---------- */
 
 .seg {
