@@ -49,6 +49,19 @@
       if (img.getAttribute("src") !== url(theme)) use(theme);
       else img.dataset.variant = theme;
     });
+
+    // Recordings: data-video="/path/name-{theme}" has name-{theme}.mp4 and
+    // name-{theme}-poster.webp. The swap keeps the playback position.
+    document.querySelectorAll("video[data-video]").forEach((video) => {
+      const base = video.dataset.video.replace("{theme}", theme);
+      if (video.getAttribute("src") === `${base}.mp4`) return;
+      const time = video.currentTime;
+      const playing = !video.paused;
+      video.poster = `${base}-poster.webp`;
+      video.src = `${base}.mp4`;
+      if (time) video.addEventListener("loadedmetadata", () => { video.currentTime = time; }, { once: true });
+      if (playing) video.play().catch(() => {});
+    });
   }
 
   document.querySelectorAll("[data-set-theme]").forEach((btn) => {
@@ -77,33 +90,79 @@
     onScroll();
   }
 
-  // ---------- Accent swatches (page-only preview, not saved) ----------
+  // ---------- Traveling phone ----------
+  // On wide screens the hero phone stays put on screen while the page
+  // scrolls, slides across, and lands in the Show section's empty
+  // .phone-slot. The phone never leaves its place in the layout; it only
+  // gets a transform. Narrow screens hide the slot and skip all this.
 
-  const swatches = document.querySelectorAll(".swatch");
-  swatches.forEach((sw) => {
-    sw.addEventListener("click", () => {
-      root.style.setProperty("--accent-l", sw.style.getPropertyValue("--c-l"));
-      root.style.setProperty("--accent-d", sw.style.getPropertyValue("--c-d"));
-      root.style.setProperty("--ink-l", sw.dataset.inkL);
-      root.style.setProperty("--ink-d", sw.dataset.inkD);
-      swatches.forEach((s) => s.setAttribute("aria-checked", String(s === sw)));
-    });
-  });
+  const phone = document.querySelector("[data-travel]");
+  const slot = document.querySelector("[data-travel-slot]");
+  const heroCopy = document.querySelector(".hero-copy");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  // Arrow keys move between swatches, like a native radio group.
-  const swatchGroup = document.querySelector(".swatches");
-  if (swatchGroup) {
-    swatchGroup.addEventListener("keydown", (e) => {
-      const list = [...swatches];
-      const i = list.indexOf(document.activeElement);
-      if (i < 0) return;
-      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-      if (!step) return;
-      e.preventDefault();
-      const next = list[(i + step + list.length) % list.length];
-      next.focus();
-      next.click();
-    });
+  if (reduceMotion.matches) {
+    document.querySelectorAll("video[autoplay]").forEach((v) => { v.removeAttribute("autoplay"); v.pause(); });
+  }
+
+  if (phone && slot) {
+    const wide = window.matchMedia("(min-width: 881px)");
+    let dx = 0;
+    let distance = 0;
+    let active = false;
+    let frame = 0;
+
+    const clamp = (v) => Math.min(1, Math.max(0, v));
+    const smooth = (v) => v * v * (3 - 2 * v);
+
+    // The Show copy scrolls into view while the phone is still on the
+    // right, so it stays hidden until the phone has crossed out of its way.
+    const showCopy = slot.parentElement.querySelector(".copy");
+    let slideEnd = 0;
+    let clearAt = 1;
+
+    function measure() {
+      phone.style.transform = "";
+      if (heroCopy) heroCopy.style.opacity = "";
+      if (showCopy) showCopy.style.opacity = "";
+      active = false;
+      if (!wide.matches) return;
+      if (reduceMotion.matches) {
+        // No travel: the slot gets its own copy of the phone.
+        if (!slot.firstChild) slot.append(phone.cloneNode(true));
+        return;
+      }
+      slot.textContent = "";
+      const from = phone.getBoundingClientRect();
+      const to = slot.getBoundingClientRect();
+      dx = to.left - from.left;
+      distance = to.top - from.top;
+      slideEnd = distance * 0.3;
+      // How far across the phone is when its right edge clears the copy.
+      clearAt = showCopy && dx < 0
+        ? Math.min(0.95, clamp((from.right + 24 - showCopy.getBoundingClientRect().left) / -dx))
+        : 0;
+      active = distance > 0 && dx < 0;
+      update();
+    }
+
+    function update() {
+      frame = 0;
+      if (!active) return;
+      const y = Math.min(window.scrollY, distance);
+      // Across in the first 30% of the trip, then it rides down to the slot.
+      const p = smooth(clamp(y / slideEnd));
+      phone.style.transform = `translate3d(${(dx * p).toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+      if (heroCopy) heroCopy.style.opacity = String(1 - clamp(p / 0.45));
+      if (showCopy) showCopy.style.opacity = String(clamp((p - clearAt) / (1 - clearAt)));
+    }
+
+    window.addEventListener("scroll", () => { if (active && !frame) frame = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener("resize", measure);
+    window.addEventListener("load", measure);
+    wide.addEventListener("change", measure);
+    reduceMotion.addEventListener("change", measure);
+    measure();
   }
 
   // ---------- Show demo ----------

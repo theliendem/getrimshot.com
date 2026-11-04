@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Rimshot · Metronome for Tempo &amp; Time Signature Changes</title>
-  <meta name="description" content="Rimshot is a free metronome for iPhone and Android. Build a show with tempo and time signature changes, ramps and loops, and play it start to finish.">
+  <meta name="description" content="Rimshot is a free metronome that changes tempo and time signature with your music. Loop the bars around any change and practice the transition.">
   <link rel="canonical" href="https://getrimshot.com/">
   <meta name="theme-color" content="#000000">
   <meta name="apple-itunes-app" content="app-id=6816163060">
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://getrimshot.com/">
   <meta property="og:title" content="Rimshot · Metronome for Tempo &amp; Time Signature Changes">
-  <meta property="og:description" content="A free metronome for shows that change tempo and time signature. Ramps, accents, count-ins and loops, plus a tuner. For iPhone and Android.">
+  <meta property="og:description" content="A normal metronome holds one tempo. Rimshot changes with the music, so you can loop a tempo or time signature change until it's automatic. Free for iPhone and Android.">
   <meta property="og:site_name" content="Rimshot">
   <meta property="og:image" content="https://getrimshot.com/assets/social/rimshot-card.jpg">
   <meta property="og:image:width" content="1200">
@@ -22,10 +22,10 @@
 
   <link rel="icon" href="/assets/icon/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=4dccf2f0">
+  <link rel="stylesheet" href="/assets/css/site.css?v=37cecef9">
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
-  <script src="/assets/js/show-player.js?v=9d19586a" defer></script>
-  <script src="/assets/js/site.js?v=e3002234" defer></script>
+  <script src="/assets/js/show-player.js?v=027be7c3" defer></script>
+  <script src="/assets/js/site.js?v=eb816432" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,7 +61,7 @@
         "@type": "MobileApplication",
         "@id": "https://getrimshot.com/#app",
         "name": "Rimshot",
-        "description": "Rimshot is a free metronome for iPhone and Android. Build a show with tempo and time signature changes, ramps and loops, and play it start to finish.",
+        "description": "Rimshot is a free metronome that changes tempo and time signature with your music. Loop the bars around any change and practice the transition.",
         "url": "https://getrimshot.com/",
         "installUrl": "https://apps.apple.com/us/app/rimshot-metronome/id6816163060",
         "operatingSystem": "iOS, Android",
@@ -79,10 +79,10 @@
           "1 to 6 subdivisions per beat",
           "Background playback when your phone is locked",
           "Shows built from measure groups, each with its own count, tempo and time signature",
+          "Looping from any measure or section, with a count-off between repeats",
           "Tempo ramps for accelerando and ritardando",
           "Accent patterns: accent, play or silence each beat",
           "Two-measure count-in",
-          "Looping from any measure or section, with a count-off between repeats",
           "Share shows with your band",
           "Tuner with note name and cents readout",
           "Adjustable reference pitch, A4 = 440 Hz by default"
@@ -119,6 +119,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Yes, as a closed beta on Google Play. It takes three quick steps to join. <a href=\"https://getrimshot.com/android/\">See how to get it</a>."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I practice just a tempo change?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Build the piece as a show, then set the loop to start a couple of bars before the change and end a couple of bars after it. Rimshot plays those bars, counts off two measures, and goes again until you stop it."
             }
           },
           {
@@ -202,8 +210,8 @@
       </a>
       <nav class="nav-primary" aria-label="Primary">
         <ul class="nav-links">
-          <li><a href="#met">Met</a></li>
           <li><a href="#show">Show</a></li>
+          <li><a href="#met">Met</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
@@ -229,8 +237,8 @@
         <div class="hero-copy">
           <div class="pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><span>120 BPM</span></div>
           <h1>Rimshot<span class="dot">.</span></h1>
-          <p class="tagline">Every tempo<span class="dot">.</span> Every meter<span class="dot">.</span></p>
-          <p class="lede">Rimshot is a metronome for iPhone and Android. Build a show and rehearse the whole piece, with every tempo and time signature change landing right on the downbeat. There's a tuner built in, too.</p>
+          <p class="tagline">Nail every transition<span class="dot">.</span></p>
+          <p class="lede">A normal metronome holds one tempo, so when the music changes, you stop and reset it. Rimshot changes with the music. Build the piece once, then loop the bars around any tempo or time signature change until it's automatic.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="https://apps.apple.com/us/app/rimshot-metronome/id6816163060" data-store="ios">Download on the App Store</a>
             <a class="btn btn-secondary" href="/android/" data-store="android">Join the Android beta</a>
@@ -238,10 +246,9 @@
           <p class="cta-meta">Free for iPhone and Android</p>
         </div>
         <figure class="hero-phone">
-          <div class="phone">
-            <div class="screen" data-shot="/assets/screens/{theme}/met">
-              <div class="placeholder"><strong>Met</strong><code>light/met.webp<br>dark/met.webp</code></div>
-              <img class="shot" src="/assets/screens/dark/met.webp" srcset="/assets/screens/dark/met-640.webp 640w, /assets/screens/dark/met.webp 828w" sizes="312px" alt="Rimshot's Met mode set to 120 BPM, with tap tempo and subdivision controls" width="828" height="1800" fetchpriority="high" decoding="async">
+          <div class="phone" data-travel>
+            <div class="screen screen-video">
+              <video class="shot" data-video="/assets/screens/show-mode-{theme}" src="/assets/screens/show-mode-dark.mp4" poster="/assets/screens/show-mode-dark-poster.webp" width="480" height="1044" autoplay muted loop playsinline preload="auto" aria-label="Rimshot's Show mode playing a show that speeds up from 100 to 200 BPM"></video>
               <span class="island"></span>
             </div>
           </div>
@@ -249,124 +256,81 @@
       </div>
     </section>
 
-    <!-- Met -->
-    <section class="section" id="met">
-      <div class="wrap split">
-        <div class="copy">
-          <p class="eyebrow">Met mode</p>
-          <h2>Just the beat<span class="dot">.</span></h2>
-          <p class="body">Set a tempo with the slider, nudge it with plus and minus, or tap it in. Split each beat into as many as six subdivisions. Nothing else on screen to get in your way.</p>
-        </div>
-        <ul class="list">
-          <li><span class="k">Tempo</span><span class="v">10–400 BPM</span></li>
-          <li><span class="k">Tap tempo</span><span class="v">Tap to set BPM</span></li>
-          <li><span class="k">Subdivision</span><span class="v">1–6 per beat</span></li>
-          <li><span class="k">Background playback</span><span class="v">Keeps time when locked</span></li>
-        </ul>
-      </div>
-    </section>
-
     <!-- Show -->
     <section class="section" id="show">
+      <div class="wrap split show-split">
+        <div class="phone-slot" data-travel-slot aria-hidden="true"></div>
+        <div class="copy">
+          <p class="eyebrow">Show mode</p>
+          <h2>Loop the transition<span class="dot">.</span></h2>
+          <p class="body">Build a piece from groups of measures, each with its own tempo and time signature. Loop the bars around a change and Rimshot counts off between passes, so you can run it twenty times without touching your phone.</p>
+          <ul class="checks">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><strong>Looping</strong><span>any bar to any bar</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><strong>Tempo ramps</strong><span>faster or slower</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><strong>Accent patterns</strong><span>accent, play or mute</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><strong>Count-in</strong><span>two bars to start</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><strong>Sharing</strong><span>a link or QR code</span></li>
+          </ul>
+
+          <div class="demo demo-compact" id="show-demo" data-show='[{"count":1,"beats":4,"unit":4,"bpm":96,"section":"A"},{"count":3,"beats":4,"unit":4,"start":96,"bpm":160},{"count":2,"beats":4,"unit":4,"bpm":160,"section":"B"}]'>
+            <div class="demo-top">
+              <div>
+                <p class="demo-badge"><i aria-hidden="true"></i>Try it</p>
+                <p class="demo-title">Hear an accelerando</p>
+                <p class="demo-sub">1 bar at 96, 3 bars speeding up, then 2 bars at 160.</p>
+              </div>
+              <p class="demo-bpm"><strong data-r="bpm">96</strong><span>BPM</span></p>
+            </div>
+            <div class="timeline" aria-hidden="true"></div>
+            <div class="demo-bottom">
+              <div class="demo-controls">
+                <button type="button" class="btn btn-primary" data-play aria-pressed="false">
+                  <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.9l11.3-7.2a1 1 0 0 0 0-1.8L8.5 3.9A1 1 0 0 0 7 4.8Z"/></svg>
+                  <svg class="i-stop" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+                  <span>Play</span>
+                </button>
+                <button type="button" class="btn btn-secondary" data-loop aria-pressed="true">Loop</button>
+              </div>
+              <p class="demo-measure"><span>Measure</span> <strong data-r="measure">1</strong></p>
+            </div>
+          </div>
+          <p class="list-foot">More on <a href="/tempo-changes/">practicing tempo changes</a>, and how it works for <a href="/musical-theater/">musical theater</a> and <a href="/marching-band/">marching band</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Met and Tuner -->
+    <section class="section section-more">
       <div class="wrap">
-        <div class="split show-split">
-          <div class="phone">
-            <div class="screen" data-shot="/assets/screens/{theme}/show">
-              <div class="placeholder"><strong>Show</strong><code>light/show.webp<br>dark/show.webp</code></div>
-              <img class="shot" src="/assets/screens/dark/show.webp" srcset="/assets/screens/dark/show-640.webp 640w, /assets/screens/dark/show.webp 828w" sizes="294px" alt="A Rimshot show with measure groups, playback controls and the current measure, tempo and time signature" width="828" height="1800" loading="lazy" decoding="async">
-              <span class="island"></span>
+        <h2 class="h-small">Also in Rimshot<span class="dot">.</span></h2>
+        <div class="minis">
+          <article class="mini" id="met">
+            <div class="phone">
+              <div class="screen" data-shot="/assets/screens/{theme}/met">
+                <div class="placeholder"><strong>Met</strong></div>
+                <img class="shot" src="/assets/screens/dark/met.webp" srcset="/assets/screens/dark/met-640.webp 640w, /assets/screens/dark/met.webp 828w" sizes="150px" alt="Rimshot's Met mode set to 120 BPM, with tap tempo and subdivision controls" width="828" height="1800" loading="lazy" decoding="async">
+                <span class="island"></span>
+              </div>
             </div>
-          </div>
-          <div class="copy">
-            <p class="eyebrow">Show mode</p>
-            <h2>Practice the whole show<span class="dot">.</span></h2>
-            <p class="body">Build a show from groups of measures, each with its own length, tempo and time signature. Ramp a group faster or slower, accent or silence any beat, and loop the part that needs work. Press play and Rimshot runs the arrangement from the first bar to the last, so you rehearse it exactly the way it's written.</p>
-            <ul class="list">
-              <li><span class="k">Measure groups</span><span class="v">Count, tempo, meter</span></li>
-              <li><span class="k">Tempo ramps</span><span class="v">Accelerando or ritardando</span></li>
-              <li><span class="k">Accent patterns</span><span class="v">Accent, normal or silent</span></li>
-              <li><span class="k">Count-in</span><span class="v">Two measures to start</span></li>
-              <li><span class="k">Looping</span><span class="v">Any measure or section</span></li>
-              <li><span class="k">Sharing</span><span class="v">A link or QR code for your band</span></li>
-            </ul>
-            <p class="list-foot">See how it works for <a href="/musical-theater/">musical theater</a> and <a href="/marching-band/">marching band</a>.</p>
-          </div>
-        </div>
-
-        <div class="demo" id="show-demo" data-show='[{"count":2,"beats":4,"unit":4,"bpm":120},{"count":4,"beats":3,"unit":4,"bpm":180},{"count":2,"beats":7,"unit":8,"bpm":160}]'>
-          <div class="demo-top">
             <div>
-              <p class="demo-title">Try a show</p>
-              <p class="demo-sub">2 bars of 4/4 at 120, then 4 bars of 3/4 at 180, then 2 bars of 7/8 at 160.</p>
+              <h3>Met mode</h3>
+              <p>A plain metronome for when you need one tempo. 10–400 BPM, tap tempo, up to six subdivisions, and it keeps time with your phone locked.</p>
             </div>
-            <button type="button" class="btn btn-primary" data-play aria-pressed="false">
-              <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.9l11.3-7.2a1 1 0 0 0 0-1.8L8.5 3.9A1 1 0 0 0 7 4.8Z"/></svg>
-              <svg class="i-stop" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
-              <span>Play</span>
-            </button>
-          </div>
-          <div class="readouts">
-            <div class="tile"><span>Measure</span><strong data-r="measure">1</strong></div>
-            <div class="tile"><span>BPM</span><strong data-r="bpm">120</strong></div>
-            <div class="tile"><span>Time</span><strong data-r="time">4/4</strong></div>
-            <div class="tile"><span>Group</span><strong data-r="group">1 of 3</strong></div>
-          </div>
-          <div class="timeline" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Settings -->
-    <section class="section" id="settings">
-      <div class="wrap split">
-        <div class="phone">
-          <div class="screen" data-shot="/assets/screens/{theme}/settings">
-            <div class="placeholder"><strong>Settings</strong><code>light/settings.webp<br>dark/settings.webp</code></div>
-            <img class="shot" src="/assets/screens/dark/settings.webp" srcset="/assets/screens/dark/settings-640.webp 640w, /assets/screens/dark/settings.webp 828w" sizes="294px" alt="Rimshot's settings: accent color, appearance, click sound, background playback and reference pitch" width="828" height="1800" loading="lazy" decoding="async">
-            <span class="island"></span>
-          </div>
-        </div>
-        <div class="copy">
-          <p class="eyebrow">Settings</p>
-          <h2>Your colors<span class="dot">.</span> Your click<span class="dot">.</span></h2>
-          <p class="body">Pick an accent color, go light or dark, choose your click sound and set your reference pitch. Try the first two right here.</p>
-          <p class="list-head try-head">Try it on this page</p>
-          <div class="list">
-            <div class="row row-accent">
-              <span class="k">Accent</span>
-              <div class="swatches" role="radiogroup" aria-label="Accent color">
-                <button type="button" class="swatch" role="radio" aria-checked="true" aria-label="Red" style="--c-l:#ff383c;--c-d:#ff4245" data-ink-l="#cc1b23" data-ink-d="#ff4245"></button>
-                <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Orange" style="--c-l:#ff8d28;--c-d:#ff9230" data-ink-l="#b04800" data-ink-d="#ff9230"></button>
-                <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Green" style="--c-l:#34c759;--c-d:#30d158" data-ink-l="#1d7735" data-ink-d="#30d158"></button>
-                <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Blue" style="--c-l:#0088ff;--c-d:#0091ff" data-ink-l="#0063d1" data-ink-d="#0091ff"></button>
-                <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Purple" style="--c-l:#cb30e0;--c-d:#db34f2" data-ink-l="#a31fb8" data-ink-d="#db34f2"></button>
+          </article>
+          <article class="mini" id="tuner">
+            <div class="phone">
+              <div class="screen" data-shot="/assets/screens/{theme}/tuner">
+                <div class="placeholder"><strong>Tuner</strong></div>
+                <img class="shot" src="/assets/screens/dark/tuner.webp" srcset="/assets/screens/dark/tuner-640.webp 640w, /assets/screens/dark/tuner.webp 828w" sizes="150px" alt="Rimshot's tuner showing the note it hears and how many cents off it is" width="828" height="1800" loading="lazy" decoding="async">
+                <span class="island"></span>
               </div>
             </div>
-            <div class="row">
-              <span class="k">Theme</span>
-              <div class="seg seg-theme" role="group" aria-label="Color theme">
-                <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
-                <button type="button" data-set-theme="dark" aria-pressed="true">Dark</button>
-              </div>
+            <div>
+              <h3>Tuner</h3>
+              <p>Play a note and see how many cents you're off. A4 = 440 Hz by default, and adjustable. The microphone is never recorded.</p>
             </div>
-          </div>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <!-- Tuner -->
-    <section class="section" id="tuner">
-      <div class="wrap split">
-        <div class="copy">
-          <p class="eyebrow">Also in Rimshot</p>
-          <h2>A tuner, too<span class="dot">.</span></h2>
-          <p class="body">Tune up before you start without switching apps. Play a note and Rimshot shows what it hears, how many cents you're off, and which way to go.</p>
-        </div>
-        <ul class="list">
-          <li><span class="k">Readout</span><span class="v">Note name and cents</span></li>
-          <li><span class="k">Reference pitch</span><span class="v">A4 = 440 Hz, adjustable</span></li>
-          <li><span class="k">Microphone</span><span class="v">Never recorded</span></li>
-        </ul>
       </div>
     </section>
 
@@ -385,6 +349,10 @@
           <details>
             <summary>Is Rimshot on Android?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
             <p>Yes, as a closed beta on Google Play. It takes three quick steps to join. <a href="/android/">See how to get it</a>.</p>
+          </details>
+          <details>
+            <summary>How do I practice just a tempo change?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
+            <p>Build the piece as a show, then set the loop to start a couple of bars before the change and end a couple of bars after it. Rimshot plays those bars, counts off two measures, and goes again until you stop it.</p>
           </details>
           <details>
             <summary>What's a show?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 5 5-5 5"/></svg></summary>
@@ -444,6 +412,7 @@
         <span>© 2026 <a class="credit" href="https://neildembla.com/">Neil Dembla</a></span>
       </div>
       <nav aria-label="Footer">
+        <a href="/tempo-changes/">Tempo changes</a>
         <a href="/musical-theater/">Musical theater</a>
         <a href="/marching-band/">Marching band</a>
         <a href="/support/">Support</a>

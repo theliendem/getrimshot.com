@@ -334,7 +334,8 @@ h1, h2, h3, p { margin: 0; }
   background: var(--surface);
 }
 
-.screen img {
+.screen img,
+.screen video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -352,6 +353,9 @@ h1, h2, h3, p { margin: 0; }
   border-radius: 99px;
   background: #000;
 }
+
+/* The Show mode recording has the recording dot inside a wider island. */
+.screen-video .island { top: 3.4cqw; width: 45cqw; height: 9.4cqw; }
 
 .placeholder {
   position: absolute;
@@ -438,8 +442,17 @@ h1, h2, h3, p { margin: 0; }
 }
 /* The whole phone fits under the nav on short laptop screens.
    A phone frame is about 2.08 times as tall as it is wide. */
-.hero-phone .phone {
+.hero-phone .phone,
+.phone-slot {
   --pw: clamp(280px, calc((100svh - var(--nav-h) - 96px) / 2.08), 340px);
+}
+/* On wide screens site.js carries this phone down into the Show section's
+   empty .phone-slot as the page scrolls, so it sits above everything. */
+.hero-phone .phone { position: relative; z-index: 20; }
+.phone-slot {
+  justify-self: center;
+  width: var(--pw);
+  aspect-ratio: 1 / 2.078;
 }
 
 @media (max-width: 880px) {
@@ -553,7 +566,35 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- Show demo ---------- */
 
-.show-split { margin-bottom: clamp(64px, 8vw, 104px); }
+@media (max-width: 880px) {
+  .phone-slot { display: none; }
+}
+
+/* ---------- Checklist ---------- */
+
+.checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.checks li {
+  display: grid;
+  align-content: start;
+  grid-template-columns: 20px minmax(0, 1fr);
+  column-gap: 10px;
+}
+.checks svg { width: 20px; height: 20px; color: var(--accent); }
+.checks strong { font-weight: 600; }
+.checks span { grid-column: 2; color: var(--text-2); font-size: 14px; }
+
+@media (max-width: 400px) {
+  .checks { gap: 12px 16px; }
+}
 
 .demo {
   padding: clamp(20px, 3vw, 32px);
@@ -613,12 +654,17 @@ h1, h2, h3, p { margin: 0; }
   margin-top: 28px;
 }
 .tl-group {
+  display: flex;
   flex: var(--dur) 1 0;
+  flex-direction: column;
+  justify-content: flex-end;
   min-width: 0;
 }
+/* Labels wrap between their parts when a group is narrow. Beats stay on one line. */
 .tl-label {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 2px 8px;
   margin: 0 2px 10px;
   color: var(--text-2);
   font-size: 14px;
@@ -672,42 +718,25 @@ h1, h2, h3, p { margin: 0; }
 .tl-beat.is-silent { background: none; box-shadow: inset 0 0 0 1.5px var(--beat); }
 .tl-beat.is-silent.is-done { box-shadow: inset 0 0 0 1.5px var(--beat-done); }
 .tl-beat.is-silent.is-now { box-shadow: inset 0 0 0 2px var(--accent); }
+/* The count-in comes before the show: outlined beats, numbered as counted. */
+.tl-count .tl-beat {
+  display: grid;
+  place-items: center;
+  background: none;
+  box-shadow: inset 0 0 0 1.5px var(--beat);
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.tl-count .tl-beat.is-done { box-shadow: inset 0 0 0 1.5px var(--beat-done); }
+.tl-count .tl-beat.is-now { background: var(--accent); box-shadow: none; color: #fff; }
 
 @media (max-width: 760px) {
   .readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .timeline { flex-direction: column; gap: 22px; }
   .demo .btn { width: 100%; }
   .tl-beat { height: 30px; }
-}
-
-/* ---------- Settings panel ---------- */
-
-.swatches {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 10px;
-}
-.swatch {
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: var(--c);
-  cursor: pointer;
-  transition: transform .15s var(--ease), box-shadow .15s;
-}
-:root[data-theme="light"] .swatch { --c: var(--c-l); }
-:root[data-theme="dark"] .swatch { --c: var(--c-d); }
-.swatch:hover { transform: scale(1.1); }
-.swatch[aria-checked="true"] {
-  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--c);
-}
-
-@media (max-width: 359px) {
-  .list > .row-accent { flex-direction: column; align-items: flex-start; }
-  .row-accent .swatches { justify-content: flex-start; }
 }
 
 /* ---------- FAQ ---------- */
@@ -961,7 +990,8 @@ h1, h2, h3, p { margin: 0; }
   overflow-wrap: anywhere;
 }
 .demo-controls { display: flex; flex-wrap: wrap; gap: 10px; }
-.demo .btn[data-count-in][aria-pressed="true"] {
+.demo .btn[data-count-in][aria-pressed="true"],
+.demo .btn[data-loop][aria-pressed="true"] {
   background: var(--accent-soft);
   color: var(--accent-ink);
   box-shadow: inset 0 0 0 1.5px var(--accent);
@@ -986,4 +1016,131 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 760px) {
   .demo-controls { width: 100%; }
   .demo-controls .btn { flex: 1; width: auto; min-width: 0; padding: 0 16px; white-space: nowrap; }
+}
+
+/* ---------- Compact demo (homepage) ---------- */
+
+.demo-compact {
+  margin-top: 32px;
+  padding: 20px;
+  border-radius: var(--r-card);
+  box-shadow:
+    0 0 0 1.5px var(--accent),
+    0 24px 60px -24px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.demo-compact .demo-top { flex-wrap: nowrap; align-items: flex-start; gap: 16px; }
+.demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+  padding: 3px 10px 3px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+.demo-badge i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.demo-compact .demo-title { font-size: 19px; }
+.demo-compact .demo-sub { font-size: 14px; }
+.demo-bpm {
+  flex: none;
+  text-align: right;
+  line-height: 1;
+}
+.demo-bpm strong {
+  display: block;
+  min-width: 2.2ch;
+  color: var(--accent-ink);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+}
+.demo-bpm span { color: var(--text-2); font-size: 13px; font-weight: 600; }
+
+.demo-compact .timeline { flex-direction: row; gap: 8px; margin-top: 18px; }
+.demo-compact .tl-label {
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  white-space: normal;
+}
+.demo-compact .tl-measures { gap: 4px; }
+.demo-compact .tl-measure { gap: 2px; padding: 3px; border-radius: 8px; }
+.demo-compact .tl-beat { height: 22px; border-radius: 5px; }
+.demo-compact .tl-count .tl-beat { font-size: 11px; }
+/* On phones the count-in gets its own row so the show keeps its width. */
+@media (max-width: 520px) {
+  .demo-compact .timeline { flex-wrap: wrap; row-gap: 12px; }
+  .demo-compact .tl-count { flex: 1 1 100%; flex-direction: row; align-items: center; gap: 10px; }
+  .demo-compact .tl-count .tl-label { flex: none; flex-direction: column; margin: 0; }
+  .demo-compact .tl-count .tl-measures { flex: 0 1 220px; }
+}
+
+.demo-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+.demo-compact .btn { min-width: 0; width: auto; height: 44px; padding: 0 20px; font-size: 16px; }
+.demo-compact .btn svg { width: 17px; height: 17px; }
+.demo-compact .demo-controls { width: auto; flex-wrap: nowrap; }
+.demo-compact .demo-controls .btn { flex: none; }
+.demo-measure { color: var(--text-2); font-size: 14px; font-weight: 600; white-space: nowrap; }
+.demo-measure strong { color: var(--text); font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .demo-badge i { animation: badge 1.2s ease-in-out infinite; }
+  .demo-compact [data-play][aria-pressed="false"] { animation: invite 2.4s var(--ease) infinite; }
+}
+@keyframes badge { 50% { opacity: .25; } }
+@keyframes invite {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 12px transparent; }
+}
+
+/* ---------- Also in Rimshot ---------- */
+
+.section-more { padding-bottom: clamp(72px, 9vw, 120px); }
+.h-small.h-small {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  letter-spacing: -.035em;
+}
+.minis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+.mini {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  border-radius: var(--r-card);
+  background: var(--surface);
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+  transition: background-color .3s var(--ease);
+}
+.mini .phone { --pw: 150px; flex: none; }
+.mini h3 { font-size: 21px; font-weight: 700; letter-spacing: -.02em; }
+.mini p { margin-top: 8px; color: var(--text-2); font-size: 16px; }
+
+@media (max-width: 880px) {
+  .minis { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .mini { gap: 18px; padding: 18px; }
+  .mini .phone { --pw: 112px; }
+  .mini p { font-size: 15px; }
 }

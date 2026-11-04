@@ -14,17 +14,25 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
   <title>Rimshot social card</title>
-  <link rel="stylesheet" href="/assets/css/site.css?v=4dccf2f0">
+  <link rel="stylesheet" href="/assets/css/site.css?v=37cecef9">
   <style>
     html, body { width: 1200px; height: 630px; overflow: hidden; }
     body { position: relative; }
 
-    .card-copy { position: absolute; left: 80px; top: 112px; width: 600px; }
+    .card-copy { position: absolute; left: 80px; top: 84px; width: 600px; }
     .card-brand { display: flex; align-items: center; gap: 14px; color: var(--text-2); font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
     .card-brand img { width: 52px; height: 52px; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); }
-    .card-copy h1 { margin-top: 30px; font-size: 128px; line-height: .92; font-weight: 800; letter-spacing: -.055em; }
+    .card-copy h1 { margin-top: 26px; font-size: 120px; line-height: .92; font-weight: 800; letter-spacing: -.055em; }
     .card-copy .tagline { margin-top: 14px; font-size: 54px; }
-    .card-copy .lede { margin-top: 34px; max-width: none; font-size: 27px; }
+    .card-copy .lede { margin-top: 20px; max-width: none; font-size: 26px; }
+
+    /* The site's loop demo, frozen on the downbeat of the change. */
+    .card-copy .timeline, .card-loop { width: 560px; }
+    .card-copy .timeline { margin-top: 30px; gap: 14px; }
+    .card-copy .tl-label { font-size: 18px; margin-bottom: 9px; }
+    .card-copy .tl-beat { height: 30px; }
+    .card-loop { position: relative; height: 26px; margin-top: 8px; color: var(--text-2); }
+    .card-loop svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 
     .card-phone { position: absolute; top: 64px; }
     .card-phone.back { left: 812px; top: 112px; --pw: 290px; opacity: .55; }
@@ -35,15 +43,38 @@
   <div class="card-copy">
     <div class="card-brand"><img src="/assets/icon/Rimshot_256.jpg" alt="">getrimshot.com</div>
     <h1>Rimshot<span class="dot">.</span></h1>
-    <p class="tagline">Every tempo<span class="dot">.</span> Every meter<span class="dot">.</span></p>
-    <p class="lede">The metronome for tempo &amp; meter changes</p>
+    <p class="tagline">Nail every transition<span class="dot">.</span></p>
+    <p class="lede">Loop any tempo or meter change until it's automatic</p>
+
+    <div class="timeline">
+      <div class="tl-group" style="--dur:5">
+        <div class="tl-label"><span class="tl-section">A</span><strong>2 × 4/4</strong><span>96 BPM</span></div>
+        <div class="tl-measures">
+          <div class="tl-measure"><i class="tl-beat is-done"></i><i class="tl-beat is-done"></i><i class="tl-beat is-done"></i><i class="tl-beat is-done"></i></div>
+          <div class="tl-measure"><i class="tl-beat is-done"></i><i class="tl-beat is-done"></i><i class="tl-beat is-done"></i><i class="tl-beat is-done"></i></div>
+        </div>
+      </div>
+      <div class="tl-group" style="--dur:5">
+        <div class="tl-label"><span class="tl-section">B</span><strong>2 × 7/8</strong><span>144 BPM</span></div>
+        <div class="tl-measures">
+          <div class="tl-measure is-now"><i class="tl-beat is-now"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i></div>
+          <div class="tl-measure"><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i><i class="tl-beat"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-loop" aria-hidden="true">
+      <svg viewBox="0 0 560 26" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M556 2v10a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V4"/>
+        <path d="M-2 10l6-7 6 7"/>
+      </svg>
+    </div>
   </div>
 
   <div class="phone card-phone back">
-    <div class="screen"><img src="/assets/screens/dark/show.webp" alt=""></div>
+    <div class="screen"><img src="/assets/screens/dark/met.webp" alt=""></div>
   </div>
   <div class="phone card-phone front">
-    <div class="screen"><img src="/assets/screens/dark/met.webp" alt=""><span class="island"></span></div>
+    <div class="screen"><img src="/assets/screens/dark/show.webp" alt=""><span class="island"></span></div>
   </div>
 </body>
 </html>
