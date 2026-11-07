@@ -1,0 +1,27 @@
+# Rimshot
+
+> Rimshot is a free metronome for music that changes tempo and time signature. Build a piece from groups of measures, each with its own tempo and time signature, then loop the bars around any change, with a count-off between passes, until the transition is automatic. It's on iPhone and in closed beta on Android. There are no ads, in-app purchases, subscriptions or accounts, and nothing leaves the phone.
+
+Rimshot is for pit musicians, section leaders and anyone whose music changes tempo or meter. It has three modes:
+
+- Show: measure groups with their own count, tempo and time signature, tempo ramps (accelerando and ritardando), accent patterns that accent, play or silence each beat, 1 to 6 subdivisions, section letters A to Z, looping from any measure or section with a two-measure count-off, and a two-measure count-in. Shows can be shared as a link or QR code that plays in any browser.
+- Met: a single-tempo metronome from 10 to 400 BPM with tap tempo and background playback.
+- Tuner: note name and cents readout, with an adjustable reference pitch (A4 = 440 Hz by default). Audio is never recorded, saved or sent anywhere.
+
+## Guides
+
+- [Practice the transitions](https://getrimshot.com/tempo-changes/): why tempo and time signature changes fall apart, and how to loop them
+- [Rimshot for musical theater](https://getrimshot.com/musical-theater/): vamps, bars of 2/4, ritardandos and sending a number to the whole pit
+- [Rimshot for marching band](https://getrimshot.com/marching-band/): building a field show, gap clicks, and sending a show to the section
+
+## Get the app
+
+- [App Store (iPhone and iPad)](https://apps.apple.com/us/app/rimshot-metronome/id6816163060)
+- [Android closed beta](https://getrimshot.com/android/): how to join on Google Play
+
+## About
+
+- [About](https://getrimshot.com/about/): who makes Rimshot and what it costs
+- [Changelog](https://getrimshot.com/changelog/): dated list of app and site updates
+- [Support](https://getrimshot.com/support/): quick fixes and contact, support@getrimshot.com
+- [Privacy](https://getrimshot.com/privacy/): no accounts, no analytics, no tracking
