@@ -22,6 +22,15 @@
   <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site.css?v=c79d9045">
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
+  <script type="module">
+    import { analytics } from 'https://esm.sh/@heycatch/sdk@0.8.5';
+    analytics.init({
+      projectKey: 'hck_pk_egaGnMgvW8MDug12sqnmb5p8IVzP6Dr3',
+      site: 'landing',
+      requestBatching: false,
+      install: { framework: 'web', agent: 'claude-code' },
+    });
+  </script>
   <script src="/assets/js/site.js?v=eb816432" defer></script>
   <script type="application/ld+json">
   {
@@ -76,7 +85,7 @@
 
   <main id="main" class="wrap doc">
     <h1>Privacy<span class="dot">.</span></h1>
-    <p class="meta">Effective October 31, 2026</p>
+    <p class="meta">Effective November 7, 2026</p>
 
     <div class="callout">
       <strong>The short version</strong>
@@ -106,7 +115,9 @@
     <p>Rimshot doesn't collect personal information from anyone, including children under 13.</p>
 
     <h2>This website</h2>
-    <p>getrimshot.com doesn't use cookies, analytics or third-party scripts. It remembers whether you picked light or dark mode in your browser's local storage, which never leaves your device. Like any website, our hosting provider may keep standard server logs, such as IP addresses, for security and reliability.</p>
+    <p>getrimshot.com uses <a href="https://heycatch.ai">HeyCatch</a> to count visits and see how people find the site. It records the pages you view, the links and buttons you click, the site that sent you, and your browser and device type. It keeps a random visitor ID in your browser so repeat visits count as one person, and it uses your IP address to estimate your country. The site doesn't ask for your name or email, and none of this is used for advertising.</p>
+    <p>The site also remembers whether you picked light or dark mode in your browser's local storage, which never leaves your device. Like any website, our hosting provider may keep standard server logs, such as IP addresses, for security and reliability.</p>
+    <p>None of this applies to the app, which has no analytics.</p>
 
     <h2>Changes</h2>
     <p>If this policy changes, we'll update this page and the date at the top.</p>

@@ -22,6 +22,15 @@
   <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site.css?v=c79d9045">
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}if(/Android/i.test(navigator.userAgent))document.documentElement.dataset.platform="android"</script>
+  <script type="module">
+    import { analytics } from 'https://esm.sh/@heycatch/sdk@0.8.5';
+    analytics.init({
+      projectKey: 'hck_pk_egaGnMgvW8MDug12sqnmb5p8IVzP6Dr3',
+      site: 'landing',
+      requestBatching: false,
+      install: { framework: 'web', agent: 'claude-code' },
+    });
+  </script>
   <script src="/assets/js/show-player.js?v=027be7c3" defer></script>
   <script src="/assets/js/site.js?v=eb816432" defer></script>
   <script type="application/ld+json">

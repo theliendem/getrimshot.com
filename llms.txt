@@ -24,4 +24,4 @@ Rimshot is for pit musicians, section leaders and anyone whose music changes tem
 - [About](https://getrimshot.com/about/): who makes Rimshot and what it costs
 - [Changelog](https://getrimshot.com/changelog/): dated list of app and site updates
 - [Support](https://getrimshot.com/support/): quick fixes and contact, support@getrimshot.com
-- [Privacy](https://getrimshot.com/privacy/): no accounts, no analytics, no tracking
+- [Privacy](https://getrimshot.com/privacy/): the app has no accounts, analytics or tracking; the website uses HeyCatch analytics
